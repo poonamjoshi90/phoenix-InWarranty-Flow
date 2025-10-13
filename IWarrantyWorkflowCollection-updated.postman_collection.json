@@ -1,0 +1,1423 @@
+{
+	"info": {
+		"_postman_id": "4c77d819-8231-44d1-a4df-3e8178119329",
+		"name": "IWarrantyWorkflowCollection-updated",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "49095615",
+		"_collection_link": "https://poonamjoshi19-2014-8038361.postman.co/workspace/poonamjoshi19-2014's-Workspace~53f82a29-b001-4b05-823d-b05e26998ff8/collection/49095615-4c77d819-8231-44d1-a4df-3e8178119329?action=share&source=collection_link&creator=49095615"
+	},
+	"item": [
+		{
+			"name": "FrontDesk_WorkFlow",
+			"item": [
+				{
+					"name": "GetAPILoginRequest",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"fdtoken\", pm.response.json().data.token);"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"iamfd\",\r\n    \"password\": \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_URL}}/login"
+					},
+					"response": []
+				},
+				{
+					"name": "Userdetails_FrontDesk",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var first_name= pm.collectionVariables.get(\"first_name\");\r",
+									"var last_name=pm.collectionVariables.get(\"last_name\");\r",
+									"var login_id=pm.collectionVariables.get(\"login_id\");\r",
+									"var mobile_number=pm.collectionVariables.get(\"mobile_number\");\r",
+									"var email_id=pm.collectionVariables.get(\"email_id\");\r",
+									"var password=pm.collectionVariables.get(\"password\");\r",
+									"var role_name=pm.collectionVariables.get(\"role_name\");\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{fdtoken}}"
+							}
+						],
+						"url": "{{BASE_URL}}/userdetails",
+						"description": "Generated from cURL: curl 'http://64.227.160.186:9000/v1/userdetails' \\\r\n  -H 'Accept: application/json, text/plain, */*' \\\r\n  -H 'Accept-Language: en-US,en;q=0.9' \\\r\n  -H 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZmlyc3RfbmFtZSI6ImZkIiwibGFzdF9uYW1lIjoiZmQiLCJsb2dpbl9pZCI6ImlhbWZkIiwibW9iaWxlX251bWJlciI6Ijg4OTk3NzY2NTUiLCJlbWFpbF9pZCI6Im1hcmtAZ21haWwuY29tIiwicGFzc3dvcmQiOiI1ZjRkY2MzYjVhYTc2NWQ2MWQ4MzI3ZGViODgyY2Y5OSIsInJlc2V0X3Bhc3N3b3JkX2RhdGUiOm51bGwsImxvY2tfc3RhdHVzIjowLCJpc19hY3RpdmUiOjEsIm1zdF9yb2xlX2lkIjo1LCJtc3Rfc2VydmljZV9sb2NhdGlvbl9pZCI6MSwiY3JlYXRlZF9hdCI6IjIwMjEtMTEtMDNUMDg6MDY6MjMuMDAwWiIsIm1vZGlmaWVkX2F0IjoiMjAyMS0xMS0wM1QwODowNjoyMy4wMDBaIiwicm9sZV9uYW1lIjoiRnJvbnREZXNrIiwic2VydmljZV9sb2NhdGlvbiI6IlNlcnZpY2UgQ2VudGVyIEEiLCJpYXQiOjE3NTk5NDcwMzh9.u0xJPBcv-0HZivGytHlhfOyPWzjD5SOApUScYFXH_xM' \\\r\n  -H 'Connection: keep-alive' \\\r\n  -H 'If-None-Match: W/\"1b6-cR2dclq1S8zJDBAsHCDA10lTBi4\"' \\\r\n  -H 'Origin: http://phoenix.techwithjatin.com' \\\r\n  -H 'Referer: http://phoenix.techwithjatin.com/' \\\r\n  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36' \\\r\n  --insecure"
+					},
+					"response": []
+				},
+				{
+					"name": "UserDetails_GetRequest",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{fdtoken}}",
+								"type": "text"
+							}
+						],
+						"url": "{{BASE_URL}}/userdetails",
+						"description": "Generated from cURL: curl 'http://64.227.160.186:9000/v1/userdetails' \\\r\n  -H 'Accept: application/json, text/plain, */*' \\\r\n  -H 'Accept-Language: en-US,en;q=0.9' \\\r\n  -H 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZmlyc3RfbmFtZSI6ImZkIiwibGFzdF9uYW1lIjoiZmQiLCJsb2dpbl9pZCI6ImlhbWZkIiwibW9iaWxlX251bWJlciI6Ijg4OTk3NzY2NTUiLCJlbWFpbF9pZCI6Im1hcmtAZ21haWwuY29tIiwicGFzc3dvcmQiOiI1ZjRkY2MzYjVhYTc2NWQ2MWQ4MzI3ZGViODgyY2Y5OSIsInJlc2V0X3Bhc3N3b3JkX2RhdGUiOm51bGwsImxvY2tfc3RhdHVzIjowLCJpc19hY3RpdmUiOjEsIm1zdF9yb2xlX2lkIjo1LCJtc3Rfc2VydmljZV9sb2NhdGlvbl9pZCI6MSwiY3JlYXRlZF9hdCI6IjIwMjEtMTEtMDNUMDg6MDY6MjMuMDAwWiIsIm1vZGlmaWVkX2F0IjoiMjAyMS0xMS0wM1QwODowNjoyMy4wMDBaIiwicm9sZV9uYW1lIjoiRnJvbnREZXNrIiwic2VydmljZV9sb2NhdGlvbiI6IlNlcnZpY2UgQ2VudGVyIEEiLCJpYXQiOjE3NTk4OTQ0Mjl9.Mw9UUq7vmqXpqsC_dIz2QbsX6ixrnBEXNI2CiBA58GA' \\\r\n  -H 'Connection: keep-alive' \\\r\n  -H 'If-None-Match: W/\"1b6-cR2dclq1S8zJDBAsHCDA10lTBi4\"' \\\r\n  -H 'Origin: http://phoenix.techwithjatin.com' \\\r\n  -H 'Referer: http://phoenix.techwithjatin.com/' \\\r\n  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36' \\\r\n  --insecure"
+					},
+					"response": []
+				},
+				{
+					"name": "Count_GetRequest",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var created_today_Count = pm.response.json().data[1].count;\r",
+									"pm.collectionVariables.set(\"created_today_Count\", created_today_Count);"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "{{fdtoken}}"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"disabled": true
+							},
+							{
+								"key": "If-None-Match",
+								"value": "W/\"f2-0WtD36Lxq73FONjm4SZbT794/zg\"",
+								"disabled": true
+							},
+							{
+								"key": "Origin",
+								"value": "http://phoenix.techwithjatin.com",
+								"disabled": true
+							},
+							{
+								"key": "Referer",
+								"value": "http://phoenix.techwithjatin.com/",
+								"disabled": true
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36",
+								"disabled": true
+							}
+						],
+						"url": "{{BASE_URL}}/dashboard/count",
+						"description": "Generated from cURL: curl 'http://64.227.160.186:9000/v1/dashboard/count' \\\r\n  -H 'Accept: application/json, text/plain, */*' \\\r\n  -H 'Accept-Language: en-US,en;q=0.9' \\\r\n  -H 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZmlyc3RfbmFtZSI6ImZkIiwibGFzdF9uYW1lIjoiZmQiLCJsb2dpbl9pZCI6ImlhbWZkIiwibW9iaWxlX251bWJlciI6Ijg4OTk3NzY2NTUiLCJlbWFpbF9pZCI6Im1hcmtAZ21haWwuY29tIiwicGFzc3dvcmQiOiI1ZjRkY2MzYjVhYTc2NWQ2MWQ4MzI3ZGViODgyY2Y5OSIsInJlc2V0X3Bhc3N3b3JkX2RhdGUiOm51bGwsImxvY2tfc3RhdHVzIjowLCJpc19hY3RpdmUiOjEsIm1zdF9yb2xlX2lkIjo1LCJtc3Rfc2VydmljZV9sb2NhdGlvbl9pZCI6MSwiY3JlYXRlZF9hdCI6IjIwMjEtMTEtMDNUMDg6MDY6MjMuMDAwWiIsIm1vZGlmaWVkX2F0IjoiMjAyMS0xMS0wM1QwODowNjoyMy4wMDBaIiwicm9sZV9uYW1lIjoiRnJvbnREZXNrIiwic2VydmljZV9sb2NhdGlvbiI6IlNlcnZpY2UgQ2VudGVyIEEiLCJpYXQiOjE3NTk4OTQ0Mjl9.Mw9UUq7vmqXpqsC_dIz2QbsX6ixrnBEXNI2CiBA58GA' \\\r\n  -H 'Connection: keep-alive' \\\r\n  -H 'If-None-Match: W/\"f2-0WtD36Lxq73FONjm4SZbT794/zg\"' \\\r\n  -H 'Origin: http://phoenix.techwithjatin.com' \\\r\n  -H 'Referer: http://phoenix.techwithjatin.com/' \\\r\n  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36' \\\r\n  --insecure"
+					},
+					"response": []
+				},
+				{
+					"name": "SearchAPIRequest",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"message should sucess\", function () {\r",
+									"    pm.expect(pm.response.json().message).to.eql(\"Success\");\r",
+									"});\r",
+									"pm.test(\"data should have one item\", function () {  \r",
+									"    pm.expect(pm.response.json().data.length).to.eql(1);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{fdtoken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "Content-Type",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"searchText\":\"JOB_79509\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_URL}}/job/search",
+						"description": "Generated from cURL: curl 'http://64.227.160.186:9000/v1/job/search' \\\r\n  -H 'Accept: application/json, text/plain, */*' \\\r\n  -H 'Accept-Language: en-US,en;q=0.9' \\\r\n  -H 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZmlyc3RfbmFtZSI6ImZkIiwibGFzdF9uYW1lIjoiZmQiLCJsb2dpbl9pZCI6ImlhbWZkIiwibW9iaWxlX251bWJlciI6Ijg4OTk3NzY2NTUiLCJlbWFpbF9pZCI6Im1hcmtAZ21haWwuY29tIiwicGFzc3dvcmQiOiI1ZjRkY2MzYjVhYTc2NWQ2MWQ4MzI3ZGViODgyY2Y5OSIsInJlc2V0X3Bhc3N3b3JkX2RhdGUiOm51bGwsImxvY2tfc3RhdHVzIjowLCJpc19hY3RpdmUiOjEsIm1zdF9yb2xlX2lkIjo1LCJtc3Rfc2VydmljZV9sb2NhdGlvbl9pZCI6MSwiY3JlYXRlZF9hdCI6IjIwMjEtMTEtMDNUMDg6MDY6MjMuMDAwWiIsIm1vZGlmaWVkX2F0IjoiMjAyMS0xMS0wM1QwODowNjoyMy4wMDBaIiwicm9sZV9uYW1lIjoiRnJvbnREZXNrIiwic2VydmljZV9sb2NhdGlvbiI6IlNlcnZpY2UgQ2VudGVyIEEiLCJpYXQiOjE3NjAyMTExMjB9.0tIadMJWm2w6y-fJbFkybZVA-xe21qy0pvmPb5KLqDQ' \\\r\n  -H 'Connection: keep-alive' \\\r\n  -H 'Content-Type: application/json' \\\r\n  -H 'Origin: http://phoenix.techwithjatin.com' \\\r\n  -H 'Referer: http://phoenix.techwithjatin.com/' \\\r\n  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36' \\\r\n  --data-raw '{\"searchText\":\"JOB_79509\"}' \\\r\n  --insecure"
+					},
+					"response": []
+				},
+				{
+					"name": "Count_FrontDesk",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{fdtoken}}"
+							}
+						],
+						"url": "{{BASE_URL}}/dashboard/count",
+						"description": "Generated from cURL: curl 'http://64.227.160.186:9000/v1/dashboard/count' \\\r\n  -H 'Accept: application/json, text/plain, */*' \\\r\n  -H 'Accept-Language: en-US,en;q=0.9' \\\r\n  -H 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZmlyc3RfbmFtZSI6ImZkIiwibGFzdF9uYW1lIjoiZmQiLCJsb2dpbl9pZCI6ImlhbWZkIiwibW9iaWxlX251bWJlciI6Ijg4OTk3NzY2NTUiLCJlbWFpbF9pZCI6Im1hcmtAZ21haWwuY29tIiwicGFzc3dvcmQiOiI1ZjRkY2MzYjVhYTc2NWQ2MWQ4MzI3ZGViODgyY2Y5OSIsInJlc2V0X3Bhc3N3b3JkX2RhdGUiOm51bGwsImxvY2tfc3RhdHVzIjowLCJpc19hY3RpdmUiOjEsIm1zdF9yb2xlX2lkIjo1LCJtc3Rfc2VydmljZV9sb2NhdGlvbl9pZCI6MSwiY3JlYXRlZF9hdCI6IjIwMjEtMTEtMDNUMDg6MDY6MjMuMDAwWiIsIm1vZGlmaWVkX2F0IjoiMjAyMS0xMS0wM1QwODowNjoyMy4wMDBaIiwicm9sZV9uYW1lIjoiRnJvbnREZXNrIiwic2VydmljZV9sb2NhdGlvbiI6IlNlcnZpY2UgQ2VudGVyIEEiLCJpYXQiOjE3NTk4OTQ0Mjl9.Mw9UUq7vmqXpqsC_dIz2QbsX6ixrnBEXNI2CiBA58GA' \\\r\n  -H 'Connection: keep-alive' \\\r\n  -H 'If-None-Match: W/\"f2-0WtD36Lxq73FONjm4SZbT794/zg\"' \\\r\n  -H 'Origin: http://phoenix.techwithjatin.com' \\\r\n  -H 'Referer: http://phoenix.techwithjatin.com/' \\\r\n  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36' \\\r\n  --insecure"
+					},
+					"response": []
+				},
+				{
+					"name": "MasterAPI",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZmlyc3RfbmFtZSI6ImZkIiwibGFzdF9uYW1lIjoiZmQiLCJsb2dpbl9pZCI6ImlhbWZkIiwibW9iaWxlX251bWJlciI6Ijg4OTk3NzY2NTUiLCJlbWFpbF9pZCI6Im1hcmtAZ21haWwuY29tIiwicGFzc3dvcmQiOiI1ZjRkY2MzYjVhYTc2NWQ2MWQ4MzI3ZGViODgyY2Y5OSIsInJlc2V0X3Bhc3N3b3JkX2RhdGUiOm51bGwsImxvY2tfc3RhdHVzIjowLCJpc19hY3RpdmUiOjEsIm1zdF9yb2xlX2lkIjo1LCJtc3Rfc2VydmljZV9sb2NhdGlvbl9pZCI6MSwiY3JlYXRlZF9hdCI6IjIwMjEtMTEtMDNUMDg6MDY6MjMuMDAwWiIsIm1vZGlmaWVkX2F0IjoiMjAyMS0xMS0wM1QwODowNjoyMy4wMDBaIiwicm9sZV9uYW1lIjoiRnJvbnREZXNrIiwic2VydmljZV9sb2NhdGlvbiI6IlNlcnZpY2UgQ2VudGVyIEEiLCJpYXQiOjE3NTk4OTQ0Mjl9.Mw9UUq7vmqXpqsC_dIz2QbsX6ixrnBEXNI2CiBA58GA"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Content-Length",
+								"value": "0"
+							},
+							{
+								"key": "Content-Type",
+								"value": "text/plain"
+							},
+							{
+								"key": "Origin",
+								"value": "http://phoenix.techwithjatin.com"
+							},
+							{
+								"key": "Referer",
+								"value": "http://phoenix.techwithjatin.com/"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+							}
+						],
+						"url": "{{BASE_URL}}/v1/master",
+						"description": "Generated from cURL: curl 'http://64.227.160.186:9000/v1/master' \\\r\n  -X 'POST' \\\r\n  -H 'Accept: application/json, text/plain, */*' \\\r\n  -H 'Accept-Language: en-US,en;q=0.9' \\\r\n  -H 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZmlyc3RfbmFtZSI6ImZkIiwibGFzdF9uYW1lIjoiZmQiLCJsb2dpbl9pZCI6ImlhbWZkIiwibW9iaWxlX251bWJlciI6Ijg4OTk3NzY2NTUiLCJlbWFpbF9pZCI6Im1hcmtAZ21haWwuY29tIiwicGFzc3dvcmQiOiI1ZjRkY2MzYjVhYTc2NWQ2MWQ4MzI3ZGViODgyY2Y5OSIsInJlc2V0X3Bhc3N3b3JkX2RhdGUiOm51bGwsImxvY2tfc3RhdHVzIjowLCJpc19hY3RpdmUiOjEsIm1zdF9yb2xlX2lkIjo1LCJtc3Rfc2VydmljZV9sb2NhdGlvbl9pZCI6MSwiY3JlYXRlZF9hdCI6IjIwMjEtMTEtMDNUMDg6MDY6MjMuMDAwWiIsIm1vZGlmaWVkX2F0IjoiMjAyMS0xMS0wM1QwODowNjoyMy4wMDBaIiwicm9sZV9uYW1lIjoiRnJvbnREZXNrIiwic2VydmljZV9sb2NhdGlvbiI6IlNlcnZpY2UgQ2VudGVyIEEiLCJpYXQiOjE3NTk4OTQ0Mjl9.Mw9UUq7vmqXpqsC_dIz2QbsX6ixrnBEXNI2CiBA58GA' \\\r\n  -H 'Connection: keep-alive' \\\r\n  -H 'Content-Length: 0' \\\r\n  -H 'Content-Type: text/plain' \\\r\n  -H 'Origin: http://phoenix.techwithjatin.com' \\\r\n  -H 'Referer: http://phoenix.techwithjatin.com/' \\\r\n  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36' \\\r\n  --insecure"
+					},
+					"response": []
+				},
+				{
+					"name": "CreateJobRequestAPI",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var randam=Math.random();\r",
+									"var imeiNummber=Math.floor(randam*10000000000000+10000000000000)\r",
+									"pm.collectionVariables.set(\"imeiNumber\", imeiNummber);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jobId = pm.response.json().data.id; // Extract the job id from the response\r",
+									"pm.collectionVariables.set(\"jobId\", jobId); // Store the job id in a collection variable for later use\r",
+									"pm.collectionVariables.set(\"jobNumber\", pm.response.json().data.job_number); // Store the job number in a collection variable for later use\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZmlyc3RfbmFtZSI6ImZkIiwibGFzdF9uYW1lIjoiZmQiLCJsb2dpbl9pZCI6ImlhbWZkIiwibW9iaWxlX251bWJlciI6Ijg4OTk3NzY2NTUiLCJlbWFpbF9pZCI6Im1hcmtAZ21haWwuY29tIiwicGFzc3dvcmQiOiI1ZjRkY2MzYjVhYTc2NWQ2MWQ4MzI3ZGViODgyY2Y5OSIsInJlc2V0X3Bhc3N3b3JkX2RhdGUiOm51bGwsImxvY2tfc3RhdHVzIjowLCJpc19hY3RpdmUiOjEsIm1zdF9yb2xlX2lkIjo1LCJtc3Rfc2VydmljZV9sb2NhdGlvbl9pZCI6MSwiY3JlYXRlZF9hdCI6IjIwMjEtMTEtMDNUMDg6MDY6MjMuMDAwWiIsIm1vZGlmaWVkX2F0IjoiMjAyMS0xMS0wM1QwODowNjoyMy4wMDBaIiwicm9sZV9uYW1lIjoiRnJvbnREZXNrIiwic2VydmljZV9sb2NhdGlvbiI6IlNlcnZpY2UgQ2VudGVyIEEiLCJpYXQiOjE3NTk4OTQ0Mjl9.Mw9UUq7vmqXpqsC_dIz2QbsX6ixrnBEXNI2CiBA58GA"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mst_service_location_id\": 0,\r\n    \"mst_platform_id\": 2,\r\n    \"mst_warrenty_status_id\": 1,\r\n    \"mst_oem_id\": 1,\r\n    \"customer\": {\r\n        \"first_name\": \"Poonam\",\r\n        \"last_name\": \"Joshi\",\r\n        \"mobile_number\": \"0909000000\",\r\n        \"mobile_number_alt\": \"89809809809\",\r\n        \"email_id\": \"test@mail.com\",\r\n        \"email_id_alt\": \"test12@mail.com\"\r\n    },\r\n    \"customer_address\": {\r\n        \"flat_number\": \"Flat-9800\",\r\n        \"apartment_name\": \"Abc\",\r\n        \"street_name\": \"Flat-109\",\r\n        \"landmark\": \"Test\",\r\n        \"area\": \"TestArea\",\r\n        \"pincode\": \"92122\",\r\n        \"country\": \"India\",\r\n        \"state\": \"Delhi\"\r\n    },\r\n    \"customer_product\": {\r\n        \"dop\": \"2025-10-07T18:30:00.000Z\",\r\n        \"serial_number\":\"{{imeiNumber}}\",\r\n        \"imei1\": \"{{imeiNumber}}\",\r\n        \"imei2\": \"{{imeiNumber}}\",\r\n        \"popurl\": \"2025-10-07T18:30:00.000Z\",\r\n        \"product_id\": 1,\r\n        \"mst_model_id\": 1\r\n    },\r\n    \"problems\": [\r\n        {\r\n            \"id\": 2,\r\n            \"remark\": \"NA\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_URL}}/job/create",
+						"description": "Generated from cURL: curl 'http://64.227.160.186:9000/v1/job/create' \\\r\n  -H 'Accept: application/json, text/plain, */*' \\\r\n  -H 'Accept-Language: en-US,en;q=0.9' \\\r\n  -H 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZmlyc3RfbmFtZSI6ImZkIiwibGFzdF9uYW1lIjoiZmQiLCJsb2dpbl9pZCI6ImlhbWZkIiwibW9iaWxlX251bWJlciI6Ijg4OTk3NzY2NTUiLCJlbWFpbF9pZCI6Im1hcmtAZ21haWwuY29tIiwicGFzc3dvcmQiOiI1ZjRkY2MzYjVhYTc2NWQ2MWQ4MzI3ZGViODgyY2Y5OSIsInJlc2V0X3Bhc3N3b3JkX2RhdGUiOm51bGwsImxvY2tfc3RhdHVzIjowLCJpc19hY3RpdmUiOjEsIm1zdF9yb2xlX2lkIjo1LCJtc3Rfc2VydmljZV9sb2NhdGlvbl9pZCI6MSwiY3JlYXRlZF9hdCI6IjIwMjEtMTEtMDNUMDg6MDY6MjMuMDAwWiIsIm1vZGlmaWVkX2F0IjoiMjAyMS0xMS0wM1QwODowNjoyMy4wMDBaIiwicm9sZV9uYW1lIjoiRnJvbnREZXNrIiwic2VydmljZV9sb2NhdGlvbiI6IlNlcnZpY2UgQ2VudGVyIEEiLCJpYXQiOjE3NTk4OTQ0Mjl9.Mw9UUq7vmqXpqsC_dIz2QbsX6ixrnBEXNI2CiBA58GA' \\\r\n  -H 'Connection: keep-alive' \\\r\n  -H 'Content-Type: application/json' \\\r\n  -H 'Origin: http://phoenix.techwithjatin.com' \\\r\n  -H 'Referer: http://phoenix.techwithjatin.com/' \\\r\n  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36' \\\r\n  --data-raw '{\"mst_service_location_id\":0,\"mst_platform_id\":2,\"mst_warrenty_status_id\":1,\"mst_oem_id\":1,\"customer\":{\"first_name\":\"Poonam\",\"last_name\":\"Joshi\",\"mobile_number\":\"0909000000\",\"mobile_number_alt\":\"89809809809\",\"email_id\":\"test@mail.com\",\"email_id_alt\":\"test12@mail.com\"},\"customer_address\":{\"flat_number\":\"Flat-9800\",\"apartment_name\":\"Abc\",\"street_name\":\"Flat-109\",\"landmark\":\"Test\",\"area\":\"TestArea\",\"pincode\":\"92122\",\"country\":\"India\",\"state\":\"Delhi\"},\"customer_product\":{\"dop\":\"2025-10-07T18:30:00.000Z\",\"serial_number\":\"909000000000000\",\"imei1\":\"909000000000000\",\"imei2\":\"909000000000000\",\"popurl\":\"2025-10-07T18:30:00.000Z\",\"product_id\":1,\"mst_model_id\":1},\"problems\":[{\"id\":2,\"remark\":\"NA\"}]}' \\\r\n  --insecure"
+					},
+					"response": []
+				},
+				{
+					"name": "CreateJobRequestAPIWithRandomData",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var random=Math.random();\r",
+									"var imeiNummber=Math.floor(random*10000000000000+10000000000000)\r",
+									"pm.collectionVariables.set(\"imeiNumber\", imeiNummber);\r",
+									"        \r",
+									"console.log(pm.variables.replaceIn(\"{{$randomFirstName}}\"));"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(\"Testing Creation Job API\")\r",
+									"const responseSchma ={\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"message\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"data\": {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"id\": {\r",
+									"          \"type\": \"number\"\r",
+									"        },\r",
+									"        \"mst_service_location_id\": {\r",
+									"          \"type\": \"number\"\r",
+									"        },\r",
+									"        \"mst_platform_id\": {\r",
+									"          \"type\": \"number\"\r",
+									"        },\r",
+									"        \"mst_warrenty_status_id\": {\r",
+									"          \"type\": \"number\"\r",
+									"        },\r",
+									"        \"mst_oem_id\": {\r",
+									"          \"type\": \"number\"\r",
+									"        },\r",
+									"        \"tr_customer_id\": {\r",
+									"          \"type\": \"number\"\r",
+									"        },\r",
+									"        \"tr_customer_product_id\": {\r",
+									"          \"type\": \"number\"\r",
+									"        },\r",
+									"        \"job_number\": {\r",
+									"          \"type\": \"string\"\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"id\",\r",
+									"        \"mst_service_location_id\",\r",
+									"        \"mst_platform_id\",\r",
+									"        \"mst_warrenty_status_id\",\r",
+									"        \"mst_oem_id\",\r",
+									"        \"tr_customer_id\",\r",
+									"        \"tr_customer_product_id\",\r",
+									"        \"job_number\"\r",
+									"      ]\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"message\",\r",
+									"    \"data\"\r",
+									"  ]\r",
+									"}\r",
+									"pm.test(\"Verify Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    \r",
+									"})\r",
+									"pm.test(\"Verify response time leass then 200 is 'Job created successfully.'\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.below(200)\r",
+									"})\r",
+									"pm.test(\"Verify response body contains 'Job created successfully.'\", function () {\r",
+									"    pm.expect(pm.response.json().message).to.be.eql(\"Job created successfully. \")\r",
+									"})\r",
+									"pm.test(\"Verify response body schema\", function () {\r",
+									"    pm.response.to.have.jsonSchema(responseSchma)\r",
+									"})\r",
+									"var expected_Keys = [\r",
+									"     \"id\", \"mst_service_location_id\", \"mst_platform_id\", \"mst_warrenty_status_id\", \"mst_oem_id\", \"tr_customer_id\", \"tr_customer_product_id\", \"job_number\"]\r",
+									"\r",
+									"     expected_Keys.forEach(function(key)\r",
+									"     {\r",
+									"         pm.test(\"Verify if\" + key + \"response body contains key: \" + key, function () {\r",
+									"     \r",
+									"             pm.expect(pm.response.json().data).to.have.property(key)\r",
+									"         })\r",
+									"     })\r",
+									"\r",
+									"     pm.test(\"verify job should start with Job\",function()\r",
+									"     {\r",
+									"         pm.expect(pm.response.json().data.job_number).to.match(/^JOB_/)\r",
+									"     })"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{fdtoken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mst_service_location_id\": 0,\r\n    \"mst_platform_id\": 2,\r\n    \"mst_warrenty_status_id\": 1,\r\n    \"mst_oem_id\": 1,\r\n    \"customer\": {\r\n        \"first_name\": \"{{$randomFirstName}}\",\r\n        \"last_name\": \"{{$randomLastName}}\",\r\n        \"mobile_number\": \"{{$randomEmail}}\",\r\n        \"mobile_number_alt\": \"\",\r\n        \"email_id\": \"{{$randomEmail}}\",\r\n        \"email_id_alt\": \"\"\r\n    },\r\n    \"customer_address\": {\r\n        \"flat_number\": \"Flat-9800\",\r\n        \"apartment_name\": \"Abc\",\r\n        \"street_name\": \"Flat-109\",\r\n        \"landmark\": \"Test\",\r\n        \"area\": \"TestArea\",\r\n        \"pincode\": \"92122\",\r\n        \"country\": \"India\",\r\n        \"state\": \"Delhi\"\r\n    },\r\n    \"customer_product\": {\r\n        \"dop\": \"2025-10-07T18:30:00.000Z\",\r\n        \"serial_number\":\"{{imeiNumber}}\",\r\n        \"imei1\": \"{{imeiNumber}}\",\r\n        \"imei2\": \"{{imeiNumber}}\",\r\n        \"popurl\": \"2025-10-07T18:30:00.000Z\",\r\n        \"product_id\": 1,\r\n        \"mst_model_id\": 1\r\n    },\r\n    \"problems\": [\r\n        {\r\n            \"id\": 2,\r\n            \"remark\": \"NA\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_URL}}/job/create",
+						"description": "Generated from cURL: curl 'http://64.227.160.186:9000/v1/job/create' \\\r\n  -H 'Accept: application/json, text/plain, */*' \\\r\n  -H 'Accept-Language: en-US,en;q=0.9' \\\r\n  -H 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZmlyc3RfbmFtZSI6ImZkIiwibGFzdF9uYW1lIjoiZmQiLCJsb2dpbl9pZCI6ImlhbWZkIiwibW9iaWxlX251bWJlciI6Ijg4OTk3NzY2NTUiLCJlbWFpbF9pZCI6Im1hcmtAZ21haWwuY29tIiwicGFzc3dvcmQiOiI1ZjRkY2MzYjVhYTc2NWQ2MWQ4MzI3ZGViODgyY2Y5OSIsInJlc2V0X3Bhc3N3b3JkX2RhdGUiOm51bGwsImxvY2tfc3RhdHVzIjowLCJpc19hY3RpdmUiOjEsIm1zdF9yb2xlX2lkIjo1LCJtc3Rfc2VydmljZV9sb2NhdGlvbl9pZCI6MSwiY3JlYXRlZF9hdCI6IjIwMjEtMTEtMDNUMDg6MDY6MjMuMDAwWiIsIm1vZGlmaWVkX2F0IjoiMjAyMS0xMS0wM1QwODowNjoyMy4wMDBaIiwicm9sZV9uYW1lIjoiRnJvbnREZXNrIiwic2VydmljZV9sb2NhdGlvbiI6IlNlcnZpY2UgQ2VudGVyIEEiLCJpYXQiOjE3NTk4OTQ0Mjl9.Mw9UUq7vmqXpqsC_dIz2QbsX6ixrnBEXNI2CiBA58GA' \\\r\n  -H 'Connection: keep-alive' \\\r\n  -H 'Content-Type: application/json' \\\r\n  -H 'Origin: http://phoenix.techwithjatin.com' \\\r\n  -H 'Referer: http://phoenix.techwithjatin.com/' \\\r\n  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36' \\\r\n  --data-raw '{\"mst_service_location_id\":0,\"mst_platform_id\":2,\"mst_warrenty_status_id\":1,\"mst_oem_id\":1,\"customer\":{\"first_name\":\"Poonam\",\"last_name\":\"Joshi\",\"mobile_number\":\"0909000000\",\"mobile_number_alt\":\"89809809809\",\"email_id\":\"test@mail.com\",\"email_id_alt\":\"test12@mail.com\"},\"customer_address\":{\"flat_number\":\"Flat-9800\",\"apartment_name\":\"Abc\",\"street_name\":\"Flat-109\",\"landmark\":\"Test\",\"area\":\"TestArea\",\"pincode\":\"92122\",\"country\":\"India\",\"state\":\"Delhi\"},\"customer_product\":{\"dop\":\"2025-10-07T18:30:00.000Z\",\"serial_number\":\"909000000000000\",\"imei1\":\"909000000000000\",\"imei2\":\"909000000000000\",\"popurl\":\"2025-10-07T18:30:00.000Z\",\"product_id\":1,\"mst_model_id\":1},\"problems\":[{\"id\":2,\"remark\":\"NA\"}]}' \\\r\n  --insecure"
+					},
+					"response": []
+				},
+				{
+					"name": "CreateJobRequestAPIWithnoDataProblem",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var random=Math.random();\r",
+									"var imeiNummber=Math.floor(random*10000000000000+10000000000000)\r",
+									"pm.collectionVariables.set(\"imeiNumber\", imeiNummber);\r",
+									"        \r",
+									"console.log(pm.variables.replaceIn(\"{{$randomFirstName}}\"));"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(\"Testing Creation Job API\")\r",
+									"const responseSchma ={\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"message\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"data\": {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"id\": {\r",
+									"          \"type\": \"number\"\r",
+									"        },\r",
+									"        \"mst_service_location_id\": {\r",
+									"          \"type\": \"number\"\r",
+									"        },\r",
+									"        \"mst_platform_id\": {\r",
+									"          \"type\": \"number\"\r",
+									"        },\r",
+									"        \"mst_warrenty_status_id\": {\r",
+									"          \"type\": \"number\"\r",
+									"        },\r",
+									"        \"mst_oem_id\": {\r",
+									"          \"type\": \"number\"\r",
+									"        },\r",
+									"        \"tr_customer_id\": {\r",
+									"          \"type\": \"number\"\r",
+									"        },\r",
+									"        \"tr_customer_product_id\": {\r",
+									"          \"type\": \"number\"\r",
+									"        },\r",
+									"        \"job_number\": {\r",
+									"          \"type\": \"string\"\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"id\",\r",
+									"        \"mst_service_location_id\",\r",
+									"        \"mst_platform_id\",\r",
+									"        \"mst_warrenty_status_id\",\r",
+									"        \"mst_oem_id\",\r",
+									"        \"tr_customer_id\",\r",
+									"        \"tr_customer_product_id\",\r",
+									"        \"job_number\"\r",
+									"      ]\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"message\",\r",
+									"    \"data\"\r",
+									"  ]\r",
+									"}\r",
+									"pm.test(\"Verify Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    \r",
+									"})\r",
+									"pm.test(\"Verify response time leass then 200 is 'Job created successfully.'\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.below(200)\r",
+									"})\r",
+									"pm.test(\"Verify response body contains 'Job created successfully.'\", function () {\r",
+									"    pm.expect(pm.response.json().message).to.be.eql(\"Job created successfully. \")\r",
+									"})\r",
+									"pm.test(\"Verify response body schema\", function () {\r",
+									"    pm.response.to.have.jsonSchema(responseSchma)\r",
+									"})\r",
+									"var expected_Keys = [\r",
+									"     \"id\", \"mst_service_location_id\", \"mst_platform_id\", \"mst_warrenty_status_id\", \"mst_oem_id\", \"tr_customer_id\", \"tr_customer_product_id\", \"job_number\"]\r",
+									"\r",
+									"     expected_Keys.forEach(function(key)\r",
+									"     {\r",
+									"         pm.test(\"Verify if\" + key + \"response body contains key: \" + key, function () {\r",
+									"     \r",
+									"             pm.expect(pm.response.json().data).to.have.property(key)\r",
+									"         })\r",
+									"     })\r",
+									"\r",
+									"     pm.test(\"verify job should start with Job\",function()\r",
+									"     {\r",
+									"         pm.expect(pm.response.json().data.job_number).to.match(/^JOB_/)\r",
+									"     })"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{fdtoken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mst_service_location_id\": 0,\r\n    \"mst_platform_id\": 2,\r\n    \"mst_warrenty_status_id\": 1,\r\n    \"mst_oem_id\": 1,\r\n    \"customer\": {\r\n        \"first_name\": \"{{$randomFirstName}}\",\r\n        \"last_name\": \"{{$randomLastName}}\",\r\n        \"mobile_number\": \"{{$randomEmail}}\",\r\n        \"mobile_number_alt\": \"\",\r\n        \"email_id\": \"{{$randomEmail}}\",\r\n        \"email_id_alt\": \"\"\r\n    },\r\n    \"customer_address\": {\r\n        \"flat_number\": \"Flat-9800\",\r\n        \"apartment_name\": \"Abc\",\r\n        \"street_name\": \"Flat-109\",\r\n        \"landmark\": \"Test\",\r\n        \"area\": \"TestArea\",\r\n        \"pincode\": \"92122\",\r\n        \"country\": \"India\",\r\n        \"state\": \"Delhi\"\r\n    },\r\n    \"customer_product\": {\r\n        \"dop\": \"2025-10-07T18:30:00.000Z\",\r\n        \"serial_number\":\"{{imeiNumber}}\",\r\n        \"imei1\": \"{{imeiNumber}}\",\r\n        \"imei2\": \"{{imeiNumber}}\",\r\n        \"popurl\": \"2025-10-07T18:30:00.000Z\",\r\n        \"product_id\": 1,\r\n        \"mst_model_id\": 1\r\n    },\r\n    \"problems\": [\r\n        {\r\n            \"id\": 2,\r\n            \"remark\": \"NA\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_URL}}/job/create",
+						"description": "Generated from cURL: curl 'http://64.227.160.186:9000/v1/job/create' \\\r\n  -H 'Accept: application/json, text/plain, */*' \\\r\n  -H 'Accept-Language: en-US,en;q=0.9' \\\r\n  -H 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZmlyc3RfbmFtZSI6ImZkIiwibGFzdF9uYW1lIjoiZmQiLCJsb2dpbl9pZCI6ImlhbWZkIiwibW9iaWxlX251bWJlciI6Ijg4OTk3NzY2NTUiLCJlbWFpbF9pZCI6Im1hcmtAZ21haWwuY29tIiwicGFzc3dvcmQiOiI1ZjRkY2MzYjVhYTc2NWQ2MWQ4MzI3ZGViODgyY2Y5OSIsInJlc2V0X3Bhc3N3b3JkX2RhdGUiOm51bGwsImxvY2tfc3RhdHVzIjowLCJpc19hY3RpdmUiOjEsIm1zdF9yb2xlX2lkIjo1LCJtc3Rfc2VydmljZV9sb2NhdGlvbl9pZCI6MSwiY3JlYXRlZF9hdCI6IjIwMjEtMTEtMDNUMDg6MDY6MjMuMDAwWiIsIm1vZGlmaWVkX2F0IjoiMjAyMS0xMS0wM1QwODowNjoyMy4wMDBaIiwicm9sZV9uYW1lIjoiRnJvbnREZXNrIiwic2VydmljZV9sb2NhdGlvbiI6IlNlcnZpY2UgQ2VudGVyIEEiLCJpYXQiOjE3NTk4OTQ0Mjl9.Mw9UUq7vmqXpqsC_dIz2QbsX6ixrnBEXNI2CiBA58GA' \\\r\n  -H 'Connection: keep-alive' \\\r\n  -H 'Content-Type: application/json' \\\r\n  -H 'Origin: http://phoenix.techwithjatin.com' \\\r\n  -H 'Referer: http://phoenix.techwithjatin.com/' \\\r\n  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36' \\\r\n  --data-raw '{\"mst_service_location_id\":0,\"mst_platform_id\":2,\"mst_warrenty_status_id\":1,\"mst_oem_id\":1,\"customer\":{\"first_name\":\"Poonam\",\"last_name\":\"Joshi\",\"mobile_number\":\"0909000000\",\"mobile_number_alt\":\"89809809809\",\"email_id\":\"test@mail.com\",\"email_id_alt\":\"test12@mail.com\"},\"customer_address\":{\"flat_number\":\"Flat-9800\",\"apartment_name\":\"Abc\",\"street_name\":\"Flat-109\",\"landmark\":\"Test\",\"area\":\"TestArea\",\"pincode\":\"92122\",\"country\":\"India\",\"state\":\"Delhi\"},\"customer_product\":{\"dop\":\"2025-10-07T18:30:00.000Z\",\"serial_number\":\"909000000000000\",\"imei1\":\"909000000000000\",\"imei2\":\"909000000000000\",\"popurl\":\"2025-10-07T18:30:00.000Z\",\"product_id\":1,\"mst_model_id\":1},\"problems\":[{\"id\":2,\"remark\":\"NA\"}]}' \\\r\n  --insecure"
+					},
+					"response": []
+				},
+				{
+					"name": "CreateJobRequestAPIWithInCorrectIMMNumber",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var random=Math.random();\r",
+									"var imeiNummber=Math.floor(random*10000000000000+10000000000000)\r",
+									"pm.collectionVariables.set(\"imeiNumber\", imeiNummber);\r",
+									"        \r",
+									"console.log(pm.variables.replaceIn(\"{{$randomFirstName}}\"));"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(\"Testing Creation Job API\")\r",
+									"const responseSchma ={\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"message\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"data\": {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"id\": {\r",
+									"          \"type\": \"number\"\r",
+									"        },\r",
+									"        \"mst_service_location_id\": {\r",
+									"          \"type\": \"number\"\r",
+									"        },\r",
+									"        \"mst_platform_id\": {\r",
+									"          \"type\": \"number\"\r",
+									"        },\r",
+									"        \"mst_warrenty_status_id\": {\r",
+									"          \"type\": \"number\"\r",
+									"        },\r",
+									"        \"mst_oem_id\": {\r",
+									"          \"type\": \"number\"\r",
+									"        },\r",
+									"        \"tr_customer_id\": {\r",
+									"          \"type\": \"number\"\r",
+									"        },\r",
+									"        \"tr_customer_product_id\": {\r",
+									"          \"type\": \"number\"\r",
+									"        },\r",
+									"        \"job_number\": {\r",
+									"          \"type\": \"string\"\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"id\",\r",
+									"        \"mst_service_location_id\",\r",
+									"        \"mst_platform_id\",\r",
+									"        \"mst_warrenty_status_id\",\r",
+									"        \"mst_oem_id\",\r",
+									"        \"tr_customer_id\",\r",
+									"        \"tr_customer_product_id\",\r",
+									"        \"job_number\"\r",
+									"      ]\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"message\",\r",
+									"    \"data\"\r",
+									"  ]\r",
+									"}\r",
+									"pm.test(\"Verify Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    \r",
+									"})\r",
+									"pm.test(\"Verify response time leass then 200 is 'Job created successfully.'\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.below(200)\r",
+									"})\r",
+									"pm.test(\"Verify response body contains 'Job created successfully.'\", function () {\r",
+									"    pm.expect(pm.response.json().message).to.be.eql(\"Job created successfully. \")\r",
+									"})\r",
+									"pm.test(\"Verify response body schema\", function () {\r",
+									"    pm.response.to.have.jsonSchema(responseSchma)\r",
+									"})\r",
+									"var expected_Keys = [\r",
+									"     \"id\", \"mst_service_location_id\", \"mst_platform_id\", \"mst_warrenty_status_id\", \"mst_oem_id\", \"tr_customer_id\", \"tr_customer_product_id\", \"job_number\"]\r",
+									"\r",
+									"     expected_Keys.forEach(function(key)\r",
+									"     {\r",
+									"         pm.test(\"Verify if\" + key + \"response body contains key: \" + key, function () {\r",
+									"     \r",
+									"             pm.expect(pm.response.json().data).to.have.property(key)\r",
+									"         })\r",
+									"     })\r",
+									"\r",
+									"     pm.test(\"verify job should start with Job\",function()\r",
+									"     {\r",
+									"         pm.expect(pm.response.json().data.job_number).to.match(/^JOB_/)\r",
+									"     })"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{fdtoken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mst_service_location_id\": 0,\r\n    \"mst_platform_id\": 2,\r\n    \"mst_warrenty_status_id\": 1,\r\n    \"mst_oem_id\": 1,\r\n    \"customer\": {\r\n        \"first_name\": \"{{$randomFirstName}}\",\r\n        \"last_name\": \"{{$randomLastName}}\",\r\n        \"mobile_number\": \"{{$randomEmail}}\",\r\n        \"mobile_number_alt\": \"\",\r\n        \"email_id\": \"{{$randomEmail}}\",\r\n        \"email_id_alt\": \"\"\r\n    },\r\n    \"customer_address\": {\r\n        \"flat_number\": \"Flat-9800\",\r\n        \"apartment_name\": \"Abc\",\r\n        \"street_name\": \"Flat-109\",\r\n        \"landmark\": \"Test\",\r\n        \"area\": \"TestArea\",\r\n        \"pincode\": \"92122\",\r\n        \"country\": \"India\",\r\n        \"state\": \"Delhi\"\r\n    },\r\n    \"customer_product\": {\r\n        \"dop\": \"2025-10-07T18:30:00.000Z\",\r\n        \"serial_number\":\"{{imeiNumber}}\",\r\n        \"imei1\": \"{{imeiNumber}}\",\r\n        \"imei2\": \"{{imeiNumber}}\",\r\n        \"popurl\": \"2025-10-07T18:30:00.000Z\",\r\n        \"product_id\": 1,\r\n        \"mst_model_id\": 1\r\n    },\r\n    \"problems\": [\r\n        {\r\n            \"id\": 2,\r\n            \"remark\": \"NA\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_URL}}/job/create",
+						"description": "Generated from cURL: curl 'http://64.227.160.186:9000/v1/job/create' \\\r\n  -H 'Accept: application/json, text/plain, */*' \\\r\n  -H 'Accept-Language: en-US,en;q=0.9' \\\r\n  -H 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZmlyc3RfbmFtZSI6ImZkIiwibGFzdF9uYW1lIjoiZmQiLCJsb2dpbl9pZCI6ImlhbWZkIiwibW9iaWxlX251bWJlciI6Ijg4OTk3NzY2NTUiLCJlbWFpbF9pZCI6Im1hcmtAZ21haWwuY29tIiwicGFzc3dvcmQiOiI1ZjRkY2MzYjVhYTc2NWQ2MWQ4MzI3ZGViODgyY2Y5OSIsInJlc2V0X3Bhc3N3b3JkX2RhdGUiOm51bGwsImxvY2tfc3RhdHVzIjowLCJpc19hY3RpdmUiOjEsIm1zdF9yb2xlX2lkIjo1LCJtc3Rfc2VydmljZV9sb2NhdGlvbl9pZCI6MSwiY3JlYXRlZF9hdCI6IjIwMjEtMTEtMDNUMDg6MDY6MjMuMDAwWiIsIm1vZGlmaWVkX2F0IjoiMjAyMS0xMS0wM1QwODowNjoyMy4wMDBaIiwicm9sZV9uYW1lIjoiRnJvbnREZXNrIiwic2VydmljZV9sb2NhdGlvbiI6IlNlcnZpY2UgQ2VudGVyIEEiLCJpYXQiOjE3NTk4OTQ0Mjl9.Mw9UUq7vmqXpqsC_dIz2QbsX6ixrnBEXNI2CiBA58GA' \\\r\n  -H 'Connection: keep-alive' \\\r\n  -H 'Content-Type: application/json' \\\r\n  -H 'Origin: http://phoenix.techwithjatin.com' \\\r\n  -H 'Referer: http://phoenix.techwithjatin.com/' \\\r\n  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36' \\\r\n  --data-raw '{\"mst_service_location_id\":0,\"mst_platform_id\":2,\"mst_warrenty_status_id\":1,\"mst_oem_id\":1,\"customer\":{\"first_name\":\"Poonam\",\"last_name\":\"Joshi\",\"mobile_number\":\"0909000000\",\"mobile_number_alt\":\"89809809809\",\"email_id\":\"test@mail.com\",\"email_id_alt\":\"test12@mail.com\"},\"customer_address\":{\"flat_number\":\"Flat-9800\",\"apartment_name\":\"Abc\",\"street_name\":\"Flat-109\",\"landmark\":\"Test\",\"area\":\"TestArea\",\"pincode\":\"92122\",\"country\":\"India\",\"state\":\"Delhi\"},\"customer_product\":{\"dop\":\"2025-10-07T18:30:00.000Z\",\"serial_number\":\"909000000000000\",\"imei1\":\"909000000000000\",\"imei2\":\"909000000000000\",\"popurl\":\"2025-10-07T18:30:00.000Z\",\"product_id\":1,\"mst_model_id\":1},\"problems\":[{\"id\":2,\"remark\":\"NA\"}]}' \\\r\n  --insecure"
+					},
+					"response": []
+				},
+				{
+					"name": "CreateJobRequestAPIWithnoDataProblem",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verify 400 status code for misiing Problem Data \", function () {\r",
+									"\r",
+									"    pm.response.to.have.status(400)\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var random=Math.random();\r",
+									"var imeiNummber=Math.floor(random*10000000000000+10000000000000)\r",
+									"pm.collectionVariables.set(\"imeiNumber\", imeiNummber);\r",
+									"        \r",
+									"console.log(pm.variables.replaceIn(\"{{$randomFirstName}}\"));"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZmlyc3RfbmFtZSI6ImZkIiwibGFzdF9uYW1lIjoiZmQiLCJsb2dpbl9pZCI6ImlhbWZkIiwibW9iaWxlX251bWJlciI6Ijg4OTk3NzY2NTUiLCJlbWFpbF9pZCI6Im1hcmtAZ21haWwuY29tIiwicGFzc3dvcmQiOiI1ZjRkY2MzYjVhYTc2NWQ2MWQ4MzI3ZGViODgyY2Y5OSIsInJlc2V0X3Bhc3N3b3JkX2RhdGUiOm51bGwsImxvY2tfc3RhdHVzIjowLCJpc19hY3RpdmUiOjEsIm1zdF9yb2xlX2lkIjo1LCJtc3Rfc2VydmljZV9sb2NhdGlvbl9pZCI6MSwiY3JlYXRlZF9hdCI6IjIwMjEtMTEtMDNUMDg6MDY6MjMuMDAwWiIsIm1vZGlmaWVkX2F0IjoiMjAyMS0xMS0wM1QwODowNjoyMy4wMDBaIiwicm9sZV9uYW1lIjoiRnJvbnREZXNrIiwic2VydmljZV9sb2NhdGlvbiI6IlNlcnZpY2UgQ2VudGVyIEEiLCJpYXQiOjE3NTk4OTQ0Mjl9.Mw9UUq7vmqXpqsC_dIz2QbsX6ixrnBEXNI2CiBA58GA"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mst_service_location_id\": 0,\r\n    \"mst_platform_id\": 2,\r\n    \"mst_warrenty_status_id\": 1,\r\n    \"mst_oem_id\": 1,\r\n    \"customer\": {\r\n        \"first_name\": \"{{$randomFirstName}}\",\r\n        \"last_name\": \"{{$randomLastName}}\",\r\n        \"mobile_number\": \"{{$randomEmail}}\",\r\n        \"mobile_number_alt\": \"\",\r\n        \"email_id\": \"{{$randomEmail}}\",\r\n        \"email_id_alt\": \"\"\r\n    },\r\n    \"customer_address\": {\r\n        \"flat_number\": \"Flat-9800\",\r\n        \"apartment_name\": \"Abc\",\r\n        \"street_name\": \"Flat-109\",\r\n        \"landmark\": \"Test\",\r\n        \"area\": \"TestArea\",\r\n        \"pincode\": \"92122\",\r\n        \"country\": \"India\",\r\n        \"state\": \"Delhi\"\r\n    },\r\n    \"customer_product\": {\r\n        \"dop\": \"2025-10-07T18:30:00.000Z\",\r\n        \"serial_number\":\"{{imeiNumber}}\",\r\n        \"imei1\": \"{{imeiNumber}}\",\r\n        \"imei2\": \"{{imeiNumber}}\",\r\n        \"popurl\": \"2025-10-07T18:30:00.000Z\",\r\n        \"product_id\": 1,\r\n        \"mst_model_id\": 1\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_URL}}/job/create",
+						"description": "Generated from cURL: curl 'http://64.227.160.186:9000/v1/job/create' \\\r\n  -H 'Accept: application/json, text/plain, */*' \\\r\n  -H 'Accept-Language: en-US,en;q=0.9' \\\r\n  -H 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZmlyc3RfbmFtZSI6ImZkIiwibGFzdF9uYW1lIjoiZmQiLCJsb2dpbl9pZCI6ImlhbWZkIiwibW9iaWxlX251bWJlciI6Ijg4OTk3NzY2NTUiLCJlbWFpbF9pZCI6Im1hcmtAZ21haWwuY29tIiwicGFzc3dvcmQiOiI1ZjRkY2MzYjVhYTc2NWQ2MWQ4MzI3ZGViODgyY2Y5OSIsInJlc2V0X3Bhc3N3b3JkX2RhdGUiOm51bGwsImxvY2tfc3RhdHVzIjowLCJpc19hY3RpdmUiOjEsIm1zdF9yb2xlX2lkIjo1LCJtc3Rfc2VydmljZV9sb2NhdGlvbl9pZCI6MSwiY3JlYXRlZF9hdCI6IjIwMjEtMTEtMDNUMDg6MDY6MjMuMDAwWiIsIm1vZGlmaWVkX2F0IjoiMjAyMS0xMS0wM1QwODowNjoyMy4wMDBaIiwicm9sZV9uYW1lIjoiRnJvbnREZXNrIiwic2VydmljZV9sb2NhdGlvbiI6IlNlcnZpY2UgQ2VudGVyIEEiLCJpYXQiOjE3NTk4OTQ0Mjl9.Mw9UUq7vmqXpqsC_dIz2QbsX6ixrnBEXNI2CiBA58GA' \\\r\n  -H 'Connection: keep-alive' \\\r\n  -H 'Content-Type: application/json' \\\r\n  -H 'Origin: http://phoenix.techwithjatin.com' \\\r\n  -H 'Referer: http://phoenix.techwithjatin.com/' \\\r\n  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36' \\\r\n  --data-raw '{\"mst_service_location_id\":0,\"mst_platform_id\":2,\"mst_warrenty_status_id\":1,\"mst_oem_id\":1,\"customer\":{\"first_name\":\"Poonam\",\"last_name\":\"Joshi\",\"mobile_number\":\"0909000000\",\"mobile_number_alt\":\"89809809809\",\"email_id\":\"test@mail.com\",\"email_id_alt\":\"test12@mail.com\"},\"customer_address\":{\"flat_number\":\"Flat-9800\",\"apartment_name\":\"Abc\",\"street_name\":\"Flat-109\",\"landmark\":\"Test\",\"area\":\"TestArea\",\"pincode\":\"92122\",\"country\":\"India\",\"state\":\"Delhi\"},\"customer_product\":{\"dop\":\"2025-10-07T18:30:00.000Z\",\"serial_number\":\"909000000000000\",\"imei1\":\"909000000000000\",\"imei2\":\"909000000000000\",\"popurl\":\"2025-10-07T18:30:00.000Z\",\"product_id\":1,\"mst_model_id\":1},\"problems\":[{\"id\":2,\"remark\":\"NA\"}]}' \\\r\n  --insecure"
+					},
+					"response": []
+				},
+				{
+					"name": "CreateJobRequestAPIWithoutCustomerInfo",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var random=Math.random();\r",
+									"var imeiNummber=Math.floor(random*10000000000000+10000000000000)\r",
+									"pm.collectionVariables.set(\"imeiNumber\", imeiNummber);\r",
+									"        \r",
+									"console.log(pm.variables.replaceIn(\"{{$randomFirstName}}\"));"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"verify status code 400 while missing customer info\", function \r",
+									"    () {\r",
+									"    pm.response.to.have.status(400)\r",
+									"    })"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{fdtoken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mst_service_location_id\": 0,\r\n    \"mst_platform_id\": 2,\r\n    \"mst_warrenty_status_id\": 1,\r\n    \"mst_oem_id\": 1,\r\n    \r\n     \"customer_address\": {\r\n        \"flat_number\": \"Flat-9800\",\r\n        \"apartment_name\": \"Abc\",\r\n        \"street_name\": \"Flat-109\",\r\n        \"landmark\": \"Test\",\r\n        \"area\": \"TestArea\",\r\n        \"pincode\": \"92122\",\r\n        \"country\": \"India\",\r\n        \"state\": \"Delhi\"\r\n    },\r\n    \"customer_product\": {\r\n        \"dop\": \"2025-10-07T18:30:00.000Z\",\r\n        \"serial_number\":\"{{imeiNumber}}\",\r\n        \"imei1\": \"{{imeiNumber}}\",\r\n        \"imei2\": \"{{imeiNumber}}\",\r\n        \"popurl\": \"2025-10-07T18:30:00.000Z\",\r\n        \"product_id\": 1,\r\n        \"mst_model_id\": 1\r\n    },\r\n    \"problems\": [\r\n        {\r\n            \"id\": 2,\r\n            \"remark\": \"NA\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_URL}}/job/create",
+						"description": "Generated from cURL: curl 'http://64.227.160.186:9000/v1/job/create' \\\r\n  -H 'Accept: application/json, text/plain, */*' \\\r\n  -H 'Accept-Language: en-US,en;q=0.9' \\\r\n  -H 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZmlyc3RfbmFtZSI6ImZkIiwibGFzdF9uYW1lIjoiZmQiLCJsb2dpbl9pZCI6ImlhbWZkIiwibW9iaWxlX251bWJlciI6Ijg4OTk3NzY2NTUiLCJlbWFpbF9pZCI6Im1hcmtAZ21haWwuY29tIiwicGFzc3dvcmQiOiI1ZjRkY2MzYjVhYTc2NWQ2MWQ4MzI3ZGViODgyY2Y5OSIsInJlc2V0X3Bhc3N3b3JkX2RhdGUiOm51bGwsImxvY2tfc3RhdHVzIjowLCJpc19hY3RpdmUiOjEsIm1zdF9yb2xlX2lkIjo1LCJtc3Rfc2VydmljZV9sb2NhdGlvbl9pZCI6MSwiY3JlYXRlZF9hdCI6IjIwMjEtMTEtMDNUMDg6MDY6MjMuMDAwWiIsIm1vZGlmaWVkX2F0IjoiMjAyMS0xMS0wM1QwODowNjoyMy4wMDBaIiwicm9sZV9uYW1lIjoiRnJvbnREZXNrIiwic2VydmljZV9sb2NhdGlvbiI6IlNlcnZpY2UgQ2VudGVyIEEiLCJpYXQiOjE3NTk4OTQ0Mjl9.Mw9UUq7vmqXpqsC_dIz2QbsX6ixrnBEXNI2CiBA58GA' \\\r\n  -H 'Connection: keep-alive' \\\r\n  -H 'Content-Type: application/json' \\\r\n  -H 'Origin: http://phoenix.techwithjatin.com' \\\r\n  -H 'Referer: http://phoenix.techwithjatin.com/' \\\r\n  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36' \\\r\n  --data-raw '{\"mst_service_location_id\":0,\"mst_platform_id\":2,\"mst_warrenty_status_id\":1,\"mst_oem_id\":1,\"customer\":{\"first_name\":\"Poonam\",\"last_name\":\"Joshi\",\"mobile_number\":\"0909000000\",\"mobile_number_alt\":\"89809809809\",\"email_id\":\"test@mail.com\",\"email_id_alt\":\"test12@mail.com\"},\"customer_address\":{\"flat_number\":\"Flat-9800\",\"apartment_name\":\"Abc\",\"street_name\":\"Flat-109\",\"landmark\":\"Test\",\"area\":\"TestArea\",\"pincode\":\"92122\",\"country\":\"India\",\"state\":\"Delhi\"},\"customer_product\":{\"dop\":\"2025-10-07T18:30:00.000Z\",\"serial_number\":\"909000000000000\",\"imei1\":\"909000000000000\",\"imei2\":\"909000000000000\",\"popurl\":\"2025-10-07T18:30:00.000Z\",\"product_id\":1,\"mst_model_id\":1},\"problems\":[{\"id\":2,\"remark\":\"NA\"}]}' \\\r\n  --insecure"
+					},
+					"response": []
+				},
+				{
+					"name": "401-CreateJobRequestAPIWithRandomData",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var random=Math.random();\r",
+									"var imeiNummber=Math.floor(random*10000000000000+10000000000000)\r",
+									"pm.collectionVariables.set(\"imeiNumber\", imeiNummber);\r",
+									"        \r",
+									"console.log(pm.variables.replaceIn(\"{{$randomFirstName}}\"));"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(\"Testing Creation Job API\")\r",
+									"const responseSchma ={\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"message\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"data\": {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"id\": {\r",
+									"          \"type\": \"number\"\r",
+									"        },\r",
+									"        \"mst_service_location_id\": {\r",
+									"          \"type\": \"number\"\r",
+									"        },\r",
+									"        \"mst_platform_id\": {\r",
+									"          \"type\": \"number\"\r",
+									"        },\r",
+									"        \"mst_warrenty_status_id\": {\r",
+									"          \"type\": \"number\"\r",
+									"        },\r",
+									"        \"mst_oem_id\": {\r",
+									"          \"type\": \"number\"\r",
+									"        },\r",
+									"        \"tr_customer_id\": {\r",
+									"          \"type\": \"number\"\r",
+									"        },\r",
+									"        \"tr_customer_product_id\": {\r",
+									"          \"type\": \"number\"\r",
+									"        },\r",
+									"        \"job_number\": {\r",
+									"          \"type\": \"string\"\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"id\",\r",
+									"        \"mst_service_location_id\",\r",
+									"        \"mst_platform_id\",\r",
+									"        \"mst_warrenty_status_id\",\r",
+									"        \"mst_oem_id\",\r",
+									"        \"tr_customer_id\",\r",
+									"        \"tr_customer_product_id\",\r",
+									"        \"job_number\"\r",
+									"      ]\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"message\",\r",
+									"    \"data\"\r",
+									"  ]\r",
+									"}\r",
+									"pm.test(\"Verify Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    \r",
+									"})\r",
+									"pm.test(\"Verify response time leass then 200 is 'Job created successfully.'\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.below(200)\r",
+									"})\r",
+									"pm.test(\"Verify response body contains 'Job created successfully.'\", function () {\r",
+									"    pm.expect(pm.response.json().message).to.be.eql(\"Job created successfully. \")\r",
+									"})\r",
+									"pm.test(\"Verify response body schema\", function () {\r",
+									"    pm.response.to.have.jsonSchema(responseSchma)\r",
+									"})\r",
+									"var expected_Keys = [\r",
+									"     \"id\", \"mst_service_location_id\", \"mst_platform_id\", \"mst_warrenty_status_id\", \"mst_oem_id\", \"tr_customer_id\", \"tr_customer_product_id\", \"job_number\"]\r",
+									"\r",
+									"     expected_Keys.forEach(function(key)\r",
+									"     {\r",
+									"         pm.test(\"Verify if\" + key + \"response body contains key: \" + key, function () {\r",
+									"     \r",
+									"             pm.expect(pm.response.json().data).to.have.property(key)\r",
+									"         })\r",
+									"     })\r",
+									"\r",
+									"     pm.test(\"verify job should start with Job\",function()\r",
+									"     {\r",
+									"         pm.expect(pm.response.json().data.job_number).to.match(/^JOB_/)\r",
+									"     })"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZmlyc3RfbmFtZSI6ImZkIiwibGFzdF9uYW1lIjoiZmQiLCJsb2dpbl9pZCI6ImlhbWZkIiwibW9iaWxlX251bWJlciI6Ijg4OTk3NzY2NTUiLCJlbWFpbF9pZCI6Im1hcmtAZ21haWwuY29tIiwicGFzc3dvcmQiOiI1ZjRkY2MzYjVhYTc2NWQ2MWQ4MzI3ZGViODgyY2Y5OSIsInJlc2V0X3Bhc3N3b3JkX2RhdGUiOm51bGwsImxvY2tfc3RhdHVzIjowLCJpc19hY3RpdmUiOjEsIm1zdF9yb2xlX2lkIjo1LCJtc3Rfc2VydmljZV9sb2NhdGlvbl9pZCI6MSwiY3JlYXRlZF9hdCI6IjIwMjEtMTEtMDNUMDg6MDY6MjMuMDAwWiIsIm1vZGlmaWVkX2F0IjoiMjAyMS0xMS0wM1QwODowNjoyMy4wMDBaIiwicm9sZV9uYW1lIjoiRnJvbnREZXNrIiwic2VydmljZV9sb2NhdGlvbiI6IlNlcnZpY2UgQ2VudGVyIEEiLCJpYXQiOjE3NTk4OTQ0Mjl9.Mw9UUq7vmqXpqsC_dIz2QbsX6ixrnBEXNI2CiBA58GA",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mst_service_location_id\": 0,\r\n    \"mst_platform_id\": 2,\r\n    \"mst_warrenty_status_id\": 1,\r\n    \"mst_oem_id\": 1,\r\n    \"customer\": {\r\n        \"first_name\": \"{{$randomFirstName}}\",\r\n        \"last_name\": \"{{$randomLastName}}\",\r\n        \"mobile_number\": \"{{$randomEmail}}\",\r\n        \"mobile_number_alt\": \"\",\r\n        \"email_id\": \"{{$randomEmail}}\",\r\n        \"email_id_alt\": \"\"\r\n    },\r\n    \"customer_address\": {\r\n        \"flat_number\": \"Flat-9800\",\r\n        \"apartment_name\": \"Abc\",\r\n        \"street_name\": \"Flat-109\",\r\n        \"landmark\": \"Test\",\r\n        \"area\": \"TestArea\",\r\n        \"pincode\": \"92122\",\r\n        \"country\": \"India\",\r\n        \"state\": \"Delhi\"\r\n    },\r\n    \"customer_product\": {\r\n        \"dop\": \"2025-10-07T18:30:00.000Z\",\r\n        \"serial_number\":\"{{imeiNumber}}\",\r\n        \"imei1\": \"{{imeiNumber}}\",\r\n        \"imei2\": \"{{imeiNumber}}\",\r\n        \"popurl\": \"2025-10-07T18:30:00.000Z\",\r\n        \"product_id\": 1,\r\n        \"mst_model_id\": 1\r\n    },\r\n    \"problems\": [\r\n        {\r\n            \"id\": 2,\r\n            \"remark\": \"NA\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_URL}}/job/create",
+						"description": "Generated from cURL: curl 'http://64.227.160.186:9000/v1/job/create' \\\r\n  -H 'Accept: application/json, text/plain, */*' \\\r\n  -H 'Accept-Language: en-US,en;q=0.9' \\\r\n  -H 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZmlyc3RfbmFtZSI6ImZkIiwibGFzdF9uYW1lIjoiZmQiLCJsb2dpbl9pZCI6ImlhbWZkIiwibW9iaWxlX251bWJlciI6Ijg4OTk3NzY2NTUiLCJlbWFpbF9pZCI6Im1hcmtAZ21haWwuY29tIiwicGFzc3dvcmQiOiI1ZjRkY2MzYjVhYTc2NWQ2MWQ4MzI3ZGViODgyY2Y5OSIsInJlc2V0X3Bhc3N3b3JkX2RhdGUiOm51bGwsImxvY2tfc3RhdHVzIjowLCJpc19hY3RpdmUiOjEsIm1zdF9yb2xlX2lkIjo1LCJtc3Rfc2VydmljZV9sb2NhdGlvbl9pZCI6MSwiY3JlYXRlZF9hdCI6IjIwMjEtMTEtMDNUMDg6MDY6MjMuMDAwWiIsIm1vZGlmaWVkX2F0IjoiMjAyMS0xMS0wM1QwODowNjoyMy4wMDBaIiwicm9sZV9uYW1lIjoiRnJvbnREZXNrIiwic2VydmljZV9sb2NhdGlvbiI6IlNlcnZpY2UgQ2VudGVyIEEiLCJpYXQiOjE3NTk4OTQ0Mjl9.Mw9UUq7vmqXpqsC_dIz2QbsX6ixrnBEXNI2CiBA58GA' \\\r\n  -H 'Connection: keep-alive' \\\r\n  -H 'Content-Type: application/json' \\\r\n  -H 'Origin: http://phoenix.techwithjatin.com' \\\r\n  -H 'Referer: http://phoenix.techwithjatin.com/' \\\r\n  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36' \\\r\n  --data-raw '{\"mst_service_location_id\":0,\"mst_platform_id\":2,\"mst_warrenty_status_id\":1,\"mst_oem_id\":1,\"customer\":{\"first_name\":\"Poonam\",\"last_name\":\"Joshi\",\"mobile_number\":\"0909000000\",\"mobile_number_alt\":\"89809809809\",\"email_id\":\"test@mail.com\",\"email_id_alt\":\"test12@mail.com\"},\"customer_address\":{\"flat_number\":\"Flat-9800\",\"apartment_name\":\"Abc\",\"street_name\":\"Flat-109\",\"landmark\":\"Test\",\"area\":\"TestArea\",\"pincode\":\"92122\",\"country\":\"India\",\"state\":\"Delhi\"},\"customer_product\":{\"dop\":\"2025-10-07T18:30:00.000Z\",\"serial_number\":\"909000000000000\",\"imei1\":\"909000000000000\",\"imei2\":\"909000000000000\",\"popurl\":\"2025-10-07T18:30:00.000Z\",\"product_id\":1,\"mst_model_id\":1},\"problems\":[{\"id\":2,\"remark\":\"NA\"}]}' \\\r\n  --insecure"
+					},
+					"response": []
+				},
+				{
+					"name": "InValidToken-CreateJobRequestAPIWithRandomData Copy",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var random=Math.random();\r",
+									"var imeiNummber=Math.floor(random*10000000000000+10000000000000)\r",
+									"pm.collectionVariables.set(\"imeiNumber\", imeiNummber);\r",
+									"        \r",
+									"console.log(pm.variables.replaceIn(\"{{$randomFirstName}}\"));"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(\"Testing Creation Job API\")\r",
+									"const responseSchma ={\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"message\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"data\": {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"id\": {\r",
+									"          \"type\": \"number\"\r",
+									"        },\r",
+									"        \"mst_service_location_id\": {\r",
+									"          \"type\": \"number\"\r",
+									"        },\r",
+									"        \"mst_platform_id\": {\r",
+									"          \"type\": \"number\"\r",
+									"        },\r",
+									"        \"mst_warrenty_status_id\": {\r",
+									"          \"type\": \"number\"\r",
+									"        },\r",
+									"        \"mst_oem_id\": {\r",
+									"          \"type\": \"number\"\r",
+									"        },\r",
+									"        \"tr_customer_id\": {\r",
+									"          \"type\": \"number\"\r",
+									"        },\r",
+									"        \"tr_customer_product_id\": {\r",
+									"          \"type\": \"number\"\r",
+									"        },\r",
+									"        \"job_number\": {\r",
+									"          \"type\": \"string\"\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"id\",\r",
+									"        \"mst_service_location_id\",\r",
+									"        \"mst_platform_id\",\r",
+									"        \"mst_warrenty_status_id\",\r",
+									"        \"mst_oem_id\",\r",
+									"        \"tr_customer_id\",\r",
+									"        \"tr_customer_product_id\",\r",
+									"        \"job_number\"\r",
+									"      ]\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"message\",\r",
+									"    \"data\"\r",
+									"  ]\r",
+									"}\r",
+									"pm.test(\"Verify Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    \r",
+									"})\r",
+									"pm.test(\"Verify response time leass then 200 is 'Job created successfully.'\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.below(200)\r",
+									"})\r",
+									"pm.test(\"Verify response body contains 'Job created successfully.'\", function () {\r",
+									"    pm.expect(pm.response.json().message).to.be.eql(\"Job created successfully. \")\r",
+									"})\r",
+									"pm.test(\"Verify response body schema\", function () {\r",
+									"    pm.response.to.have.jsonSchema(responseSchma)\r",
+									"})\r",
+									"var expected_Keys = [\r",
+									"     \"id\", \"mst_service_location_id\", \"mst_platform_id\", \"mst_warrenty_status_id\", \"mst_oem_id\", \"tr_customer_id\", \"tr_customer_product_id\", \"job_number\"]\r",
+									"\r",
+									"     expected_Keys.forEach(function(key)\r",
+									"     {\r",
+									"         pm.test(\"Verify if\" + key + \"response body contains key: \" + key, function () {\r",
+									"     \r",
+									"             pm.expect(pm.response.json().data).to.have.property(key)\r",
+									"         })\r",
+									"     })\r",
+									"\r",
+									"     pm.test(\"verify job should start with Job\",function()\r",
+									"     {\r",
+									"         pm.expect(pm.response.json().data.job_number).to.match(/^JOB_/)\r",
+									"     })"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZmlyc3RfbmFtZSI6ImZkIiwibGFzdF9uYW1lIjoiZmQiLCJsb2dpbl9pZCI6ImlhbWZkIiwibW9iaWxlX251bWJlciI6Ijg4OTk3NzY2NTUiLCJlbWFpbF9pZCI6Im1hcmtAZ21haWwuY29tIiwicGFzc3dvcmQiOiI1ZjRkY2MzYjVhYTc2NWQ2MWQ4MzI3ZGViODgyY2Y5OSIsInJlc2V0X3Bhc3N3b3JkX2RhdGUiOm51bGwsImxvY2tfc3RhdHVzIjowLCJpc19hY3RpdmUiOjEsIm1zdF9yb2xlX2lkIjo1LCJtc3Rfc2VydmljZV9sb2NhdGlvbl9pZCI6MSwiY3JlYXRlZF9hdCI6IjIwMjEtMTEtMDNUMDg6MDY6MjMuMDAwWiIsIm1vZGlmaWVkX2F0IjoiMjAyMS0xMS0wM1QwODowNjoyMy4wMDBaIiwicm9sZV9uYW1lIjoiRnJvbnREZXNrIiwic2VydmljZV9sb2NhdGlvbiI6IlNlcnZpY2UgQ2VudGVyIEEiLCJpYXQiOjE3NTk4OTQ0Mjl9.Mw9UUq7vmqXpqsC_dIz2QbsX6ixrnBEXNI2CiBA58GA"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mst_service_location_id\": 0,\r\n    \"mst_platform_id\": 2,\r\n    \"mst_warrenty_status_id\": 1,\r\n    \"mst_oem_id\": 1,\r\n    \"customer\": {\r\n        \"first_name\": \"{{$randomFirstName}}\",\r\n        \"last_name\": \"{{$randomLastName}}\",\r\n        \"mobile_number\": \"{{$randomEmail}}\",\r\n        \"mobile_number_alt\": \"\",\r\n        \"email_id\": \"{{$randomEmail}}\",\r\n        \"email_id_alt\": \"\"\r\n    },\r\n    \"customer_address\": {\r\n        \"flat_number\": \"Flat-9800\",\r\n        \"apartment_name\": \"Abc\",\r\n        \"street_name\": \"Flat-109\",\r\n        \"landmark\": \"Test\",\r\n        \"area\": \"TestArea\",\r\n        \"pincode\": \"92122\",\r\n        \"country\": \"India\",\r\n        \"state\": \"Delhi\"\r\n    },\r\n    \"customer_product\": {\r\n        \"dop\": \"2025-10-07T18:30:00.000Z\",\r\n        \"serial_number\":\"{{imeiNumber}}\",\r\n        \"imei1\": \"{{imeiNumber}}\",\r\n        \"imei2\": \"{{imeiNumber}}\",\r\n        \"popurl\": \"2025-10-07T18:30:00.000Z\",\r\n        \"product_id\": 1,\r\n        \"mst_model_id\": 1\r\n    },\r\n    \"problems\": [\r\n        {\r\n            \"id\": 2,\r\n            \"remark\": \"NA\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_URL}}/job/create",
+						"description": "Generated from cURL: curl 'http://64.227.160.186:9000/v1/job/create' \\\r\n  -H 'Accept: application/json, text/plain, */*' \\\r\n  -H 'Accept-Language: en-US,en;q=0.9' \\\r\n  -H 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZmlyc3RfbmFtZSI6ImZkIiwibGFzdF9uYW1lIjoiZmQiLCJsb2dpbl9pZCI6ImlhbWZkIiwibW9iaWxlX251bWJlciI6Ijg4OTk3NzY2NTUiLCJlbWFpbF9pZCI6Im1hcmtAZ21haWwuY29tIiwicGFzc3dvcmQiOiI1ZjRkY2MzYjVhYTc2NWQ2MWQ4MzI3ZGViODgyY2Y5OSIsInJlc2V0X3Bhc3N3b3JkX2RhdGUiOm51bGwsImxvY2tfc3RhdHVzIjowLCJpc19hY3RpdmUiOjEsIm1zdF9yb2xlX2lkIjo1LCJtc3Rfc2VydmljZV9sb2NhdGlvbl9pZCI6MSwiY3JlYXRlZF9hdCI6IjIwMjEtMTEtMDNUMDg6MDY6MjMuMDAwWiIsIm1vZGlmaWVkX2F0IjoiMjAyMS0xMS0wM1QwODowNjoyMy4wMDBaIiwicm9sZV9uYW1lIjoiRnJvbnREZXNrIiwic2VydmljZV9sb2NhdGlvbiI6IlNlcnZpY2UgQ2VudGVyIEEiLCJpYXQiOjE3NTk4OTQ0Mjl9.Mw9UUq7vmqXpqsC_dIz2QbsX6ixrnBEXNI2CiBA58GA' \\\r\n  -H 'Connection: keep-alive' \\\r\n  -H 'Content-Type: application/json' \\\r\n  -H 'Origin: http://phoenix.techwithjatin.com' \\\r\n  -H 'Referer: http://phoenix.techwithjatin.com/' \\\r\n  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36' \\\r\n  --data-raw '{\"mst_service_location_id\":0,\"mst_platform_id\":2,\"mst_warrenty_status_id\":1,\"mst_oem_id\":1,\"customer\":{\"first_name\":\"Poonam\",\"last_name\":\"Joshi\",\"mobile_number\":\"0909000000\",\"mobile_number_alt\":\"89809809809\",\"email_id\":\"test@mail.com\",\"email_id_alt\":\"test12@mail.com\"},\"customer_address\":{\"flat_number\":\"Flat-9800\",\"apartment_name\":\"Abc\",\"street_name\":\"Flat-109\",\"landmark\":\"Test\",\"area\":\"TestArea\",\"pincode\":\"92122\",\"country\":\"India\",\"state\":\"Delhi\"},\"customer_product\":{\"dop\":\"2025-10-07T18:30:00.000Z\",\"serial_number\":\"909000000000000\",\"imei1\":\"909000000000000\",\"imei2\":\"909000000000000\",\"popurl\":\"2025-10-07T18:30:00.000Z\",\"product_id\":1,\"mst_model_id\":1},\"problems\":[{\"id\":2,\"remark\":\"NA\"}]}' \\\r\n  --insecure"
+					},
+					"response": []
+				},
+				{
+					"name": "Details_GetAPI",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{fdtoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"details_key\":\"created_today\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_URL}}/dashboard/details",
+						"description": "Generated from cURL: curl 'http://64.227.160.186:9000/v1/dashboard/details' \\\r\n  -H 'Accept: application/json, text/plain, */*' \\\r\n  -H 'Accept-Language: en-US,en;q=0.9' \\\r\n  -H 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZmlyc3RfbmFtZSI6ImZkIiwibGFzdF9uYW1lIjoiZmQiLCJsb2dpbl9pZCI6ImlhbWZkIiwibW9iaWxlX251bWJlciI6Ijg4OTk3NzY2NTUiLCJlbWFpbF9pZCI6Im1hcmtAZ21haWwuY29tIiwicGFzc3dvcmQiOiI1ZjRkY2MzYjVhYTc2NWQ2MWQ4MzI3ZGViODgyY2Y5OSIsInJlc2V0X3Bhc3N3b3JkX2RhdGUiOm51bGwsImxvY2tfc3RhdHVzIjowLCJpc19hY3RpdmUiOjEsIm1zdF9yb2xlX2lkIjo1LCJtc3Rfc2VydmljZV9sb2NhdGlvbl9pZCI6MSwiY3JlYXRlZF9hdCI6IjIwMjEtMTEtMDNUMDg6MDY6MjMuMDAwWiIsIm1vZGlmaWVkX2F0IjoiMjAyMS0xMS0wM1QwODowNjoyMy4wMDBaIiwicm9sZV9uYW1lIjoiRnJvbnREZXNrIiwic2VydmljZV9sb2NhdGlvbiI6IlNlcnZpY2UgQ2VudGVyIEEiLCJpYXQiOjE3NTk4OTQ0Mjl9.Mw9UUq7vmqXpqsC_dIz2QbsX6ixrnBEXNI2CiBA58GA' \\\r\n  -H 'Connection: keep-alive' \\\r\n  -H 'Content-Type: application/json' \\\r\n  -H 'Origin: http://phoenix.techwithjatin.com' \\\r\n  -H 'Referer: http://phoenix.techwithjatin.com/' \\\r\n  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36' \\\r\n  --data-raw '{\"details_key\":\"pending_for_delivery\"}' \\\r\n  --insecure"
+					},
+					"response": []
+				},
+				{
+					"name": "JobDetails_GetAPI",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZmlyc3RfbmFtZSI6ImZkIiwibGFzdF9uYW1lIjoiZmQiLCJsb2dpbl9pZCI6ImlhbWZkIiwibW9iaWxlX251bWJlciI6Ijg4OTk3NzY2NTUiLCJlbWFpbF9pZCI6Im1hcmtAZ21haWwuY29tIiwicGFzc3dvcmQiOiI1ZjRkY2MzYjVhYTc2NWQ2MWQ4MzI3ZGViODgyY2Y5OSIsInJlc2V0X3Bhc3N3b3JkX2RhdGUiOm51bGwsImxvY2tfc3RhdHVzIjowLCJpc19hY3RpdmUiOjEsIm1zdF9yb2xlX2lkIjo1LCJtc3Rfc2VydmljZV9sb2NhdGlvbl9pZCI6MSwiY3JlYXRlZF9hdCI6IjIwMjEtMTEtMDNUMDg6MDY6MjMuMDAwWiIsIm1vZGlmaWVkX2F0IjoiMjAyMS0xMS0wM1QwODowNjoyMy4wMDBaIiwicm9sZV9uYW1lIjoiRnJvbnREZXNrIiwic2VydmljZV9sb2NhdGlvbiI6IlNlcnZpY2UgQ2VudGVyIEEiLCJpYXQiOjE3NTk4OTQ0Mjl9.Mw9UUq7vmqXpqsC_dIz2QbsX6ixrnBEXNI2CiBA58GA"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Origin",
+								"value": "http://phoenix.techwithjatin.com"
+							},
+							{
+								"key": "Referer",
+								"value": "http://phoenix.techwithjatin.com/"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"details_key\":\"pending_for_delivery\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_URL}}/job/details/JOB_77725",
+						"description": "Generated from cURL: curl 'http://64.227.160.186:9000/v1/dashboard/details' \\\r\n  -H 'Accept: application/json, text/plain, */*' \\\r\n  -H 'Accept-Language: en-US,en;q=0.9' \\\r\n  -H 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZmlyc3RfbmFtZSI6ImZkIiwibGFzdF9uYW1lIjoiZmQiLCJsb2dpbl9pZCI6ImlhbWZkIiwibW9iaWxlX251bWJlciI6Ijg4OTk3NzY2NTUiLCJlbWFpbF9pZCI6Im1hcmtAZ21haWwuY29tIiwicGFzc3dvcmQiOiI1ZjRkY2MzYjVhYTc2NWQ2MWQ4MzI3ZGViODgyY2Y5OSIsInJlc2V0X3Bhc3N3b3JkX2RhdGUiOm51bGwsImxvY2tfc3RhdHVzIjowLCJpc19hY3RpdmUiOjEsIm1zdF9yb2xlX2lkIjo1LCJtc3Rfc2VydmljZV9sb2NhdGlvbl9pZCI6MSwiY3JlYXRlZF9hdCI6IjIwMjEtMTEtMDNUMDg6MDY6MjMuMDAwWiIsIm1vZGlmaWVkX2F0IjoiMjAyMS0xMS0wM1QwODowNjoyMy4wMDBaIiwicm9sZV9uYW1lIjoiRnJvbnREZXNrIiwic2VydmljZV9sb2NhdGlvbiI6IlNlcnZpY2UgQ2VudGVyIEEiLCJpYXQiOjE3NTk4OTQ0Mjl9.Mw9UUq7vmqXpqsC_dIz2QbsX6ixrnBEXNI2CiBA58GA' \\\r\n  -H 'Connection: keep-alive' \\\r\n  -H 'Content-Type: application/json' \\\r\n  -H 'Origin: http://phoenix.techwithjatin.com' \\\r\n  -H 'Referer: http://phoenix.techwithjatin.com/' \\\r\n  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36' \\\r\n  --data-raw '{\"details_key\":\"pending_for_delivery\"}' \\\r\n  --insecure"
+					},
+					"response": []
+				},
+				{
+					"name": "CreateJobRequestAPIWithoutCustomerInfo Copy",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var random=Math.random();\r",
+									"var imeiNummber=Math.floor(random*10000000000000+10000000000000)\r",
+									"pm.collectionVariables.set(\"imeiNumber\", imeiNummber);\r",
+									"        \r",
+									"console.log(pm.variables.replaceIn(\"{{$randomFirstName}}\"));"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(\"Testing Creation Job API\")\r",
+									"const responseSchma ={\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"message\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"data\": {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"id\": {\r",
+									"          \"type\": \"number\"\r",
+									"        },\r",
+									"        \"mst_service_location_id\": {\r",
+									"          \"type\": \"number\"\r",
+									"        },\r",
+									"        \"mst_platform_id\": {\r",
+									"          \"type\": \"number\"\r",
+									"        },\r",
+									"        \"mst_warrenty_status_id\": {\r",
+									"          \"type\": \"number\"\r",
+									"        },\r",
+									"        \"mst_oem_id\": {\r",
+									"          \"type\": \"number\"\r",
+									"        },\r",
+									"        \"tr_customer_id\": {\r",
+									"          \"type\": \"number\"\r",
+									"        },\r",
+									"        \"tr_customer_product_id\": {\r",
+									"          \"type\": \"number\"\r",
+									"        },\r",
+									"        \"job_number\": {\r",
+									"          \"type\": \"string\"\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"id\",\r",
+									"        \"mst_service_location_id\",\r",
+									"        \"mst_platform_id\",\r",
+									"        \"mst_warrenty_status_id\",\r",
+									"        \"mst_oem_id\",\r",
+									"        \"tr_customer_id\",\r",
+									"        \"tr_customer_product_id\",\r",
+									"        \"job_number\"\r",
+									"      ]\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"message\",\r",
+									"    \"data\"\r",
+									"  ]\r",
+									"}\r",
+									"pm.test(\"Verify Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    \r",
+									"})\r",
+									"pm.test(\"Verify response time leass then 200 is 'Job created successfully.'\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.below(200)\r",
+									"})\r",
+									"pm.test(\"Verify response body contains 'Job created successfully.'\", function () {\r",
+									"    pm.expect(pm.response.json().message).to.be.eql(\"Job created successfully. \")\r",
+									"})\r",
+									"pm.test(\"Verify response body schema\", function () {\r",
+									"    pm.response.to.have.jsonSchema(responseSchma)\r",
+									"})\r",
+									"var expected_Keys = [\r",
+									"     \"id\", \"mst_service_location_id\", \"mst_platform_id\", \"mst_warrenty_status_id\", \"mst_oem_id\", \"tr_customer_id\", \"tr_customer_product_id\", \"job_number\"]\r",
+									"\r",
+									"     expected_Keys.forEach(function(key)\r",
+									"     {\r",
+									"         pm.test(\"Verify if\" + key + \"response body contains key: \" + key, function () {\r",
+									"     \r",
+									"             pm.expect(pm.response.json().data).to.have.property(key)\r",
+									"         })\r",
+									"     })\r",
+									"\r",
+									"     pm.test(\"verify job should start with Job\",function()\r",
+									"     {\r",
+									"         pm.expect(pm.response.json().data.job_number).to.match(/^JOB_/)\r",
+									"     })"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZmlyc3RfbmFtZSI6ImZkIiwibGFzdF9uYW1lIjoiZmQiLCJsb2dpbl9pZCI6ImlhbWZkIiwibW9iaWxlX251bWJlciI6Ijg4OTk3NzY2NTUiLCJlbWFpbF9pZCI6Im1hcmtAZ21haWwuY29tIiwicGFzc3dvcmQiOiI1ZjRkY2MzYjVhYTc2NWQ2MWQ4MzI3ZGViODgyY2Y5OSIsInJlc2V0X3Bhc3N3b3JkX2RhdGUiOm51bGwsImxvY2tfc3RhdHVzIjowLCJpc19hY3RpdmUiOjEsIm1zdF9yb2xlX2lkIjo1LCJtc3Rfc2VydmljZV9sb2NhdGlvbl9pZCI6MSwiY3JlYXRlZF9hdCI6IjIwMjEtMTEtMDNUMDg6MDY6MjMuMDAwWiIsIm1vZGlmaWVkX2F0IjoiMjAyMS0xMS0wM1QwODowNjoyMy4wMDBaIiwicm9sZV9uYW1lIjoiRnJvbnREZXNrIiwic2VydmljZV9sb2NhdGlvbiI6IlNlcnZpY2UgQ2VudGVyIEEiLCJpYXQiOjE3NTk4OTQ0Mjl9.Mw9UUq7vmqXpqsC_dIz2QbsX6ixrnBEXNI2CiBA58GA"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mst_service_location_id\": 0,\r\n    \"mst_platform_id\": 2,\r\n    \"mst_warrenty_status_id\": 1,\r\n    \"mst_oem_id\": 1,\r\n    \"customer\": {\r\n        \"first_name\": \"{{$randomFirstName}}\",\r\n        \"last_name\": \"{{$randomLastName}}\",\r\n        \"mobile_number\": \"{{$randomEmail}}\",\r\n        \"mobile_number_alt\": \"\",\r\n        \"email_id\": \"{{$randomEmail}}\",\r\n        \"email_id_alt\": \"\"\r\n    },\r\n    \"customer_address\": {\r\n        \"flat_number\": \"Flat-9800\",\r\n        \"apartment_name\": \"Abc\",\r\n        \"street_name\": \"Flat-109\",\r\n        \"landmark\": \"Test\",\r\n        \"area\": \"TestArea\",\r\n        \"pincode\": \"92122\",\r\n        \"country\": \"India\",\r\n        \"state\": \"Delhi\"\r\n    },\r\n    \"customer_product\": {\r\n        \"dop\": \"2025-10-07T18:30:00.000Z\",\r\n        \"serial_number\":\"{{imeiNumber}}\",\r\n        \"imei1\": \"{{imeiNumber}}\",\r\n        \"imei2\": \"{{imeiNumber}}\",\r\n        \"popurl\": \"2025-10-07T18:30:00.000Z\",\r\n        \"product_id\": 1,\r\n        \"mst_model_id\": 1\r\n    },\r\n    \"problems\": [\r\n        {\r\n            \"id\": 2,\r\n            \"remark\": \"NA\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_URL}}/v1/job/create",
+						"description": "Generated from cURL: curl 'http://64.227.160.186:9000/v1/job/create' \\\r\n  -H 'Accept: application/json, text/plain, */*' \\\r\n  -H 'Accept-Language: en-US,en;q=0.9' \\\r\n  -H 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZmlyc3RfbmFtZSI6ImZkIiwibGFzdF9uYW1lIjoiZmQiLCJsb2dpbl9pZCI6ImlhbWZkIiwibW9iaWxlX251bWJlciI6Ijg4OTk3NzY2NTUiLCJlbWFpbF9pZCI6Im1hcmtAZ21haWwuY29tIiwicGFzc3dvcmQiOiI1ZjRkY2MzYjVhYTc2NWQ2MWQ4MzI3ZGViODgyY2Y5OSIsInJlc2V0X3Bhc3N3b3JkX2RhdGUiOm51bGwsImxvY2tfc3RhdHVzIjowLCJpc19hY3RpdmUiOjEsIm1zdF9yb2xlX2lkIjo1LCJtc3Rfc2VydmljZV9sb2NhdGlvbl9pZCI6MSwiY3JlYXRlZF9hdCI6IjIwMjEtMTEtMDNUMDg6MDY6MjMuMDAwWiIsIm1vZGlmaWVkX2F0IjoiMjAyMS0xMS0wM1QwODowNjoyMy4wMDBaIiwicm9sZV9uYW1lIjoiRnJvbnREZXNrIiwic2VydmljZV9sb2NhdGlvbiI6IlNlcnZpY2UgQ2VudGVyIEEiLCJpYXQiOjE3NTk4OTQ0Mjl9.Mw9UUq7vmqXpqsC_dIz2QbsX6ixrnBEXNI2CiBA58GA' \\\r\n  -H 'Connection: keep-alive' \\\r\n  -H 'Content-Type: application/json' \\\r\n  -H 'Origin: http://phoenix.techwithjatin.com' \\\r\n  -H 'Referer: http://phoenix.techwithjatin.com/' \\\r\n  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36' \\\r\n  --data-raw '{\"mst_service_location_id\":0,\"mst_platform_id\":2,\"mst_warrenty_status_id\":1,\"mst_oem_id\":1,\"customer\":{\"first_name\":\"Poonam\",\"last_name\":\"Joshi\",\"mobile_number\":\"0909000000\",\"mobile_number_alt\":\"89809809809\",\"email_id\":\"test@mail.com\",\"email_id_alt\":\"test12@mail.com\"},\"customer_address\":{\"flat_number\":\"Flat-9800\",\"apartment_name\":\"Abc\",\"street_name\":\"Flat-109\",\"landmark\":\"Test\",\"area\":\"TestArea\",\"pincode\":\"92122\",\"country\":\"India\",\"state\":\"Delhi\"},\"customer_product\":{\"dop\":\"2025-10-07T18:30:00.000Z\",\"serial_number\":\"909000000000000\",\"imei1\":\"909000000000000\",\"imei2\":\"909000000000000\",\"popurl\":\"2025-10-07T18:30:00.000Z\",\"product_id\":1,\"mst_model_id\":1},\"problems\":[{\"id\":2,\"remark\":\"NA\"}]}' \\\r\n  --insecure"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "imeiNumber",
+			"value": ""
+		},
+		{
+			"key": "fdtoken",
+			"value": ""
+		},
+		{
+			"key": "jobId",
+			"value": ""
+		},
+		{
+			"key": "jobNumber",
+			"value": ""
+		},
+		{
+			"key": "created_today_Count",
+			"value": ""
+		}
+	]
+}
