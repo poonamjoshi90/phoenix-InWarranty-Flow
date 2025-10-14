@@ -2,7 +2,8 @@ name : Postman Collection Workflow
 
 on :
   push:
-    branches :[main]
+    branches :
+    - main
       workflow_dispatch:
         schedule:
           - cron : 30 02 * * *
