@@ -1,0 +1,42 @@
+name : Postman Collection Workflow
+
+on :
+  push:
+    branches :[main]
+      workflow_dispatch:
+        schedule:
+          - cron : 30 02 * * *
+          - cron : 00 14 * * *
+          -cron : 00 06 * * 1-5
+
+ jobs:
+  run-Postman-tests:
+   runs-on: ubantu-latest
+  
+   steps:
+
+   name: Checkout the code
+     uses: actions/checkout@v5.0.0
+
+    name : install node js and mpm
+        uses: actions/setup-node@v6.0.0
+        with : 
+        node version : '22'
+
+        name : Install newman and html extra report
+        run : npm install -g newman && newman-reporter-htmlextra
+
+        name : run Postman collection with newman
+        run :|
+          newman run 'IWarrantyWorkflowCollection-updated.postman_collection.json' \
+          -e GlobalVaiable_QAEnv.postman_environment.json \
+          -r cli,htmlextra
+        
+        
+
+    
+
+   
+
+
+   
