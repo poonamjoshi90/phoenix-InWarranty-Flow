@@ -1,43 +1,32 @@
-name : Postman Collection Workflow
+name: Postman Collection Workflow
 
-on :
+on:
   push:
-    branches :
-    - main
-      workflow_dispatch:
-        schedule:
-          - cron : 30 02 * * *
-          - cron : 00 14 * * *
-          -cron : 00 06 * * 1-5
+    branches:
+      - main
+  workflow_dispatch:
+  schedule:
+    - cron: 30 02 * * *
+    - cron: 00 14 * * *
+    - cron: 00 06 * * 1-5
 
- jobs:
+jobs:
   run-Postman-tests:
-   runs-on: ubantu-latest
-  
-   steps:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v5.0.0
 
-   name: Checkout the code
-     uses: actions/checkout@v5.0.0
-
-    name : install node js and mpm
+      - name: Install Node.js and npm
         uses: actions/setup-node@v6.0.0
-        with : 
-        node version : '22'
+        with:
+          node-version: '22'
 
-        name : Install newman and html extra report
-        run : npm install -g newman && newman-reporter-htmlextra
+      - name: Install Newman and HTML Extra Reporter
+        run: npm install -g newman newman-reporter-htmlextra
 
-        name : run Postman collection with newman
-        run :|
+      - name: Run Postman collection with Newman
+        run: |
           newman run 'IWarrantyWorkflowCollection-updated.postman_collection.json' \
           -e GlobalVaiable_QAEnv.postman_environment.json \
           -r cli,htmlextra
-        
-        
-
-    
-
-   
-
-
-   
