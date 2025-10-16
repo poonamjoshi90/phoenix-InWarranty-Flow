@@ -6,21 +6,21 @@ on:
       - main
   workflow_dispatch:
   schedule:
-    - cron: 30 02 * * *
-    - cron: 00 14 * * *
-    - cron: 00 06 * * 1-5
+    - cron: '30 02 * * *'
+    - cron: '00 14 * * *'
+    - cron: '00 06 * * 1-5'
 
 jobs:
   run-Postman-tests:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the code
-        uses: actions/checkout@v5.0.0
+        uses: actions/checkout@v5
 
       - name: Install Node.js and npm
-        uses: actions/setup-node@v6.0.0
+        uses: actions/setup-node@v3
         with:
-          node-version: '22'
+          node-version: '18'
 
       - name: Install Newman and HTML Extra Reporter
         run: npm install -g newman newman-reporter-htmlextra
@@ -31,32 +31,28 @@ jobs:
           -e GlobalVaiable_QAEnv.postman_environment.json \
           -r cli,htmlextra
 
-          name : Newman Report
-          if:always()
-              uses: actions/upload-artifact@v4.6.2
-              name : Newman Report
-              path : newman/.html
+      - name: Upload Newman Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Newman Report
+          path: newman/
 
-            name : creatig Github page branch
-             if : always()
-             user: peaceiris/actions-github-pages@v3.1.12
-             with :
-               github_token :${{ secrrets.GITHUB_TOKEN }}
-               publish_dir: newman/
+      - name: Create GitHub Pages branch
+        if: always()
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: newman/
 
-            name : send mail Nmtification
-            user : hemupadhyay26/action-email-notification@v1.1
-            if : always()
-            server_address : smpt.gmail.com
-            server_port : 465
-            Subject : phoenix-InWarranty-Flow Email Notification
-            Recipients : poonam.joshiit@gmail.com
-            Body of mail message :
+      - name: Send Email Notification
+        if: always()
+        uses: hemupadhyay26/action-email-notification@v1.1
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          subject: phoenix-InWarranty-Flow Email Notification
+          recipients: poonam.joshiit@gmail.com
+          body: |
             Hi Team,
-            Please find status of Testing Automatio <poonam.joshi19.2014@gmail.com>.
-
-            
-             
-
-          
-          
+            Please find status of Testing Automation.
