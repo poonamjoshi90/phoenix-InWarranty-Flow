@@ -37,5 +37,13 @@ jobs:
               name : Newman Report
               path : newman/.html
 
+            name : creatig Github page branch
+             if : always()
+             user: peaceiris/actions-github-pages@v3.1.12
+             with :
+               github_token :${{ secrrets.GITHUB_TOKEN }}
+               publish_dir: newman/
+             
+
           
           
