@@ -43,6 +43,19 @@ jobs:
              with :
                github_token :${{ secrrets.GITHUB_TOKEN }}
                publish_dir: newman/
+
+            name : send mail Nmtification
+            user : hemupadhyay26/action-email-notification@v1.1
+            if : always()
+            server_address : smpt.gmail.com
+            server_port : 465
+            Subject : phoenix-InWarranty-Flow Email Notification
+            Recipients : poonam.joshiit@gmail.com
+            Body of mail message :
+            Hi Team,
+            Please find status of Testing Automatio <poonam.joshi19.2014@gmail.com>.
+
+            
              
 
           
